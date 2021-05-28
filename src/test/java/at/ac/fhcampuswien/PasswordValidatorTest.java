@@ -34,22 +34,40 @@ public class PasswordValidatorTest {
     }
 
     @Test
-    @DisplayName("password has upper and lower case letters")
+    @DisplayName("Password has upper and lower case letters")
     public void testPasswordUpperLowerCase1(){
         PasswordValidator pw = new PasswordValidator();
-        assertTrue(pw.checkPassword("Abcdefgh"));
+        assertTrue(pw.checkPassword("Abcdefgh1"));
     }
     @Test
-    @DisplayName("password has no upper case letter")
+    @DisplayName("Password has no upper case letter")
     public void testPasswordUpperLowerCase2(){
         PasswordValidator pw = new PasswordValidator();
-        assertFalse(pw.checkPassword("abcdefgh"));
+        assertFalse(pw.checkPassword("abcdefgh1"));
     }
     @Test
-    @DisplayName("password has no lower case letter")
+    @DisplayName("Password has no lower case letter")
     public void testPasswordUpperLowerCase3(){
         PasswordValidator pw = new PasswordValidator();
-        assertFalse(pw.checkPassword("ABCDEFGH"));
+        assertFalse(pw.checkPassword("ABCDEFGH1"));
+    }
+    @Test
+    @DisplayName("Password has no letter")
+    public void testPasswordUpperLowerCase4(){
+        PasswordValidator pw = new PasswordValidator();
+        assertFalse(pw.checkPassword("123456789"));
     }
 
+    @Test
+    @DisplayName("Password has numbers")
+    public void testPasswordHasNumber1(){
+        PasswordValidator pw = new PasswordValidator();
+        assertTrue(pw.checkPassword("Password12"));
+    }
+    @Test
+    @DisplayName("Password has no numbers")
+    public void testPasswordHasNumber2(){
+        PasswordValidator pw = new PasswordValidator();
+        assertFalse(pw.checkPassword("Password"));
+    }
 }

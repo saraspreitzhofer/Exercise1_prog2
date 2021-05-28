@@ -14,8 +14,18 @@ public class PasswordValidator {
                 password.equals(password.toUpperCase())){
             return false;
         }
-        else {
-            return true;
-        }
+        /*else{
+            int count = 0;
+            char[] pwArr = password.toCharArray();
+            for(char c : pwArr){
+                if(Character.isDigit(c)){
+                    count++;
+                }
+            }
+            if(count == pwArr.length){
+                return false;
+            }
+        }*/
+        return true;
     }
 }

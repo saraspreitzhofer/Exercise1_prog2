@@ -8,19 +8,19 @@ public class PasswordValidatorTest {
 
     @Test
     @DisplayName("Has password valid length")
-    public void testPasswordLength_1(){
+    public void testPasswordLength1(){
         PasswordValidator pw = new PasswordValidator();
-        assertTrue(pw.isValid("password1234"));
+        assertTrue(pw.checkPassword("password1234"));
     }
     @Test
-    public void testPasswordLength_2(){
+    public void testPasswordLength2(){
         PasswordValidator pw = new PasswordValidator();
-        assertFalse(pw.isValid("pw1"));
+        assertFalse(pw.checkPassword("pw1"));
     }
     @Test
-    public void testPasswordLength_3(){
+    public void testPasswordLength3(){
         PasswordValidator pw = new PasswordValidator();
-        assertFalse(pw.isValid("pw1234pw1234pw1234pw1234pw"));
+        assertFalse(pw.checkPassword("pw1234pw1234pw1234pw1234pw"));
     }
 
 }

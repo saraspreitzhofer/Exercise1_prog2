@@ -18,7 +18,7 @@ public class PasswordValidatorTest {
     @DisplayName("Password length valid")
     public void testPasswordLength1(){
         PasswordValidator pw = new PasswordValidator();
-        assertTrue(pw.checkPassword("password1234"));
+        assertTrue(pw.checkPassword("Password1234"));
     }
     @Test
     @DisplayName("Password length too short")
@@ -32,7 +32,7 @@ public class PasswordValidatorTest {
         PasswordValidator pw = new PasswordValidator();
         assertFalse(pw.checkPassword("pw1234pw1234pw1234pw1234pw"));
     }
-/*
+
     @Test
     @DisplayName("password has upper and lower case letters")
     public void testPasswordUpperLowerCase1(){
@@ -51,5 +51,5 @@ public class PasswordValidatorTest {
         PasswordValidator pw = new PasswordValidator();
         assertFalse(pw.checkPassword("ABCDEFGH"));
     }
-*/
+
 }

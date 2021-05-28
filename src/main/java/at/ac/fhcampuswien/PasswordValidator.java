@@ -7,12 +7,13 @@ public class PasswordValidator {
         if(password == null){                                           //testPasswordNull
             return false;
         }
-        else if(password.length() < 8 || password.length() > 25){           //testPasswordLength
+        else if(password.length() < 8 || password.length() > 25){       //testPasswordLength
             return false;
         }
-        /*else if(password.equals(password.toLowerCase()) || password.equals(password.toUpperCase())){
+        else if(password.equals(password.toLowerCase()) ||              //testPasswordUpperLowerCase
+                password.equals(password.toUpperCase())){
             return false;
-        }*/
+        }
         else {
             return true;
         }

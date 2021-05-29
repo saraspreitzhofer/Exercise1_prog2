@@ -15,17 +15,38 @@ public class PasswordValidator {
             return false;
         }
         else{
-            int count = 0;
+            int letterCount = 0;
+            int specialCount = 0;
             char[] pwArr = password.toCharArray();
             for(char c : pwArr){
                 if(Character.isDigit(c)){
-                    count++;
+                    letterCount++;
+                }
+                if(c < 'A' || c > 'z' || (c > 'Z' && c < 'a')){
+                    switch (c){
+                        case '(':
+                        case ')':
+                        case '#':
+                        case '$':
+                        case '?':
+                        case '!':
+                        case '%':
+                        case '/':
+                        case '@':
+                            specialCount++;
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
-            if(count == pwArr.length){                                  //testPasswordUpperLowerCase
+            if(letterCount == pwArr.length){                                  //testPasswordUpperLowerCase
                 return false;
             }
-            else if(count == 0){                                        //testPasswordHasNumber
+            else if(letterCount == 0){                                        //testPasswordHasNumber
+                return false;
+            }
+            else if(specialCount == 0){                                       //testPasswordSpecialCharacter
                 return false;
             }
         }

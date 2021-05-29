@@ -41,7 +41,11 @@ public class PasswordValidator {
                             break;
                     }
                 }
-
+                if(pwArr.length > 3 && i < (pwArr.length - 3)){               //testPasswordSameNumber
+                    if(pwArr[i]==pwArr[i+1] && pwArr[i]==pwArr[i+2] && pwArr[i]==pwArr[i+3] && pwArr[i]>='0' && pwArr[i]<='9'){
+                        return false;
+                    }
+                }
             }
             if(letterCount == pwArr.length){                                  //testPasswordUpperLowerCase
                 return false;

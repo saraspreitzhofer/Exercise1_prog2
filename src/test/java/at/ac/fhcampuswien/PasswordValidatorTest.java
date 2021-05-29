@@ -115,4 +115,10 @@ public class PasswordValidatorTest {
         PasswordValidator pw = new PasswordValidator();
         assertFalse(pw.checkPassword("!Password2222"));
     }
+    @Test
+    @DisplayName("Password has same number less than 4 times in series")
+    public void testPasswordSameNumber3(){
+        PasswordValidator pw = new PasswordValidator();
+        assertTrue(pw.checkPassword("!Passwordddd22"));
+    }
 }

@@ -18,7 +18,6 @@ public class PasswordValidator {
             int letterCount = 0;
             int specialCount = 0;
             char[] pwArr = password.toCharArray();
-            //for(char c : pwArr){
             for(int i=0; i<pwArr.length; i++){
                 char c = pwArr[i];
                 if(Character.isDigit(c)){
@@ -41,8 +40,13 @@ public class PasswordValidator {
                             break;
                     }
                 }
-                if(pwArr.length > 3 && i < (pwArr.length - 3)){               //testPasswordSameNumber
-                    if(pwArr[i]==pwArr[i+1] && pwArr[i]==pwArr[i+2] && pwArr[i]==pwArr[i+3] && pwArr[i]>='0' && pwArr[i]<='9'){
+                if(pwArr[i]>='0' && pwArr[i]<='9'){
+                    if(i<(pwArr.length-3) && pwArr[i]==pwArr[i+1] && pwArr[i]==pwArr[i+2] && pwArr[i]==pwArr[i+3]){     //testPasswordSameNumber
+                        return false;
+                    }
+                    if(i<(pwArr.length-2) &&                                                                            //testPasswordContinuousNumbers
+                            Character.getNumericValue(pwArr[i]) == Character.getNumericValue(pwArr[i+1])-1 &&
+                            Character.getNumericValue(pwArr[i]) == Character.getNumericValue(pwArr[i+2])-2){
                         return false;
                     }
                 }

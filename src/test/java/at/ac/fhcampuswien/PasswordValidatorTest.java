@@ -18,7 +18,7 @@ public class PasswordValidatorTest {
     @DisplayName("Password length valid")
     public void testPasswordLength1(){
         PasswordValidator pw = new PasswordValidator();
-        assertTrue(pw.checkPassword("!Password1234"));
+        assertTrue(pw.checkPassword("!Password12"));
     }
     @Test
     @DisplayName("Password length too short")
@@ -30,7 +30,7 @@ public class PasswordValidatorTest {
     @DisplayName("Password length too long")
     public void testPasswordLength3(){
         PasswordValidator pw = new PasswordValidator();
-        assertFalse(pw.checkPassword("!pw1234pw1234pw1234pw1234pw"));
+        assertFalse(pw.checkPassword("!pw3412pw3412pw3412pw3412pw"));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class PasswordValidatorTest {
     @DisplayName("Password has no letter")
     public void testPasswordUpperLowerCase4(){
         PasswordValidator pw = new PasswordValidator();
-        assertFalse(pw.checkPassword("!123456789"));
+        assertFalse(pw.checkPassword("!987654321"));
     }
 
     @Test
@@ -89,7 +89,7 @@ public class PasswordValidatorTest {
         PasswordValidator pw = new PasswordValidator();
         assertFalse(pw.checkPassword(".Password12"));
     }
-/*
+
     @Test
     @DisplayName("Password has no continuous numbers")
     public void testPasswordContinuousNumbers1(){
@@ -102,7 +102,7 @@ public class PasswordValidatorTest {
         PasswordValidator pw = new PasswordValidator();
         assertFalse(pw.checkPassword("!Password123"));
     }
-*/
+
     @Test
     @DisplayName("Password has same number less than 4 times in series")
     public void testPasswordSameNumber1(){

@@ -14,7 +14,7 @@ public class PasswordValidator {
                 password.equals(password.toUpperCase())){
             return false;
         }
-        /*else{
+        else{
             int count = 0;
             char[] pwArr = password.toCharArray();
             for(char c : pwArr){
@@ -22,10 +22,13 @@ public class PasswordValidator {
                     count++;
                 }
             }
-            if(count == pwArr.length){
+            if(count == pwArr.length){                                  //testPasswordUpperLowerCase
                 return false;
             }
-        }*/
+            else if(count == 0){                                        //testPasswordHasNumber
+                return false;
+            }
+        }
         return true;
     }
 }

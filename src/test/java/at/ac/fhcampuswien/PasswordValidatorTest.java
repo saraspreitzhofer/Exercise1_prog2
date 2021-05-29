@@ -83,4 +83,23 @@ public class PasswordValidatorTest {
         PasswordValidator pw = new PasswordValidator();
         assertFalse(pw.checkPassword("Password12"));
     }
+    @Test
+    @DisplayName("Password has forbidden special character")
+    public void testPasswordSpecialCharacter3(){
+        PasswordValidator pw = new PasswordValidator();
+        assertFalse(pw.checkPassword(".Password12"));
+    }
+
+    @Test
+    @DisplayName("Password has no continuous numbers")
+    public void testPasswordContinuousNumbers1(){
+        PasswordValidator pw = new PasswordValidator();
+        assertTrue(pw.checkPassword("!3Password12"));
+    }
+    @Test
+    @DisplayName("Password has continuous numbers")
+    public void testPasswordContinuousNumbers2(){
+        PasswordValidator pw = new PasswordValidator();
+        assertFalse(pw.checkPassword("!Password123"));
+    }
 }

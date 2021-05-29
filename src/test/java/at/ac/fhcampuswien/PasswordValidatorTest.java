@@ -89,7 +89,7 @@ public class PasswordValidatorTest {
         PasswordValidator pw = new PasswordValidator();
         assertFalse(pw.checkPassword(".Password12"));
     }
-
+/*
     @Test
     @DisplayName("Password has no continuous numbers")
     public void testPasswordContinuousNumbers1(){
@@ -101,5 +101,18 @@ public class PasswordValidatorTest {
     public void testPasswordContinuousNumbers2(){
         PasswordValidator pw = new PasswordValidator();
         assertFalse(pw.checkPassword("!Password123"));
+    }
+*/
+    @Test
+    @DisplayName("Password has same number less than 4 times in series")
+    public void testPasswordSameNumber1(){
+        PasswordValidator pw = new PasswordValidator();
+        assertTrue(pw.checkPassword("!Password222"));
+    }
+    @Test
+    @DisplayName("Password has same number more than or exactly 4 times in series")
+    public void testPasswordSameNumber2(){
+        PasswordValidator pw = new PasswordValidator();
+        assertFalse(pw.checkPassword("!Password2222"));
     }
 }

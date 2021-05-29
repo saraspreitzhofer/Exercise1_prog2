@@ -18,7 +18,9 @@ public class PasswordValidator {
             int letterCount = 0;
             int specialCount = 0;
             char[] pwArr = password.toCharArray();
-            for(char c : pwArr){
+            //for(char c : pwArr){
+            for(int i=0; i<pwArr.length; i++){
+                char c = pwArr[i];
                 if(Character.isDigit(c)){
                     letterCount++;
                 }
@@ -39,6 +41,7 @@ public class PasswordValidator {
                             break;
                     }
                 }
+
             }
             if(letterCount == pwArr.length){                                  //testPasswordUpperLowerCase
                 return false;
@@ -50,6 +53,16 @@ public class PasswordValidator {
                 return false;
             }
         }
+        /*if(password.contains("012") ||                                        //testPasswordContinuousNumbers
+                password.contains("123") ||
+                password.contains("234") ||
+                password.contains("345") ||
+                password.contains("456") ||
+                password.contains("567") ||
+                password.contains("678") ||
+                password.contains("789")){
+            return false;
+        }*/
         return true;
     }
 }

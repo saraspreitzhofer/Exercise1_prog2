@@ -18,56 +18,69 @@ public class PasswordValidatorTest {
     @DisplayName("Password length valid")
     public void testPasswordLength1(){
         PasswordValidator pw = new PasswordValidator();
-        assertTrue(pw.checkPassword("Password1234"));
+        assertTrue(pw.checkPassword("!Password1234"));
     }
     @Test
     @DisplayName("Password length too short")
     public void testPasswordLength2(){
         PasswordValidator pw = new PasswordValidator();
-        assertFalse(pw.checkPassword("pw1"));
+        assertFalse(pw.checkPassword("!pw1"));
     }
     @Test
     @DisplayName("Password length too long")
     public void testPasswordLength3(){
         PasswordValidator pw = new PasswordValidator();
-        assertFalse(pw.checkPassword("pw1234pw1234pw1234pw1234pw"));
+        assertFalse(pw.checkPassword("!pw1234pw1234pw1234pw1234pw"));
     }
 
     @Test
     @DisplayName("Password has upper and lower case letters")
     public void testPasswordUpperLowerCase1(){
         PasswordValidator pw = new PasswordValidator();
-        assertTrue(pw.checkPassword("Abcdefgh1"));
+        assertTrue(pw.checkPassword("!Abcdefgh1"));
     }
     @Test
     @DisplayName("Password has no upper case letter")
     public void testPasswordUpperLowerCase2(){
         PasswordValidator pw = new PasswordValidator();
-        assertFalse(pw.checkPassword("abcdefgh1"));
+        assertFalse(pw.checkPassword("!abcdefgh1"));
     }
     @Test
     @DisplayName("Password has no lower case letter")
     public void testPasswordUpperLowerCase3(){
         PasswordValidator pw = new PasswordValidator();
-        assertFalse(pw.checkPassword("ABCDEFGH1"));
+        assertFalse(pw.checkPassword("!ABCDEFGH1"));
     }
     @Test
     @DisplayName("Password has no letter")
     public void testPasswordUpperLowerCase4(){
         PasswordValidator pw = new PasswordValidator();
-        assertFalse(pw.checkPassword("123456789"));
+        assertFalse(pw.checkPassword("!123456789"));
     }
 
     @Test
     @DisplayName("Password has numbers")
     public void testPasswordHasNumber1(){
         PasswordValidator pw = new PasswordValidator();
-        assertTrue(pw.checkPassword("Password12"));
+        assertTrue(pw.checkPassword("!Password12"));
     }
     @Test
     @DisplayName("Password has no numbers")
     public void testPasswordHasNumber2(){
         PasswordValidator pw = new PasswordValidator();
-        assertFalse(pw.checkPassword("Password"));
+        assertFalse(pw.checkPassword("!Password"));
+    }
+
+    @Test
+    @DisplayName("Password has special character")
+    public void testPasswordSpecialCharacter1(){
+        PasswordValidator pw = new PasswordValidator();
+        assertTrue(pw.checkPassword("!Password12"));
+    }
+    @Test
+    @DisplayName("Password has no special character")
+    public void testPasswordSpecialCharacter2(){
+        PasswordValidator pw = new PasswordValidator();
+        assertFalse(pw.checkPassword("Password12"));
     }
 }
